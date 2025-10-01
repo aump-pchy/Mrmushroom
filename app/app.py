@@ -56,8 +56,8 @@ def safety_policy(dets, best):
         return "uncertain", edible_max, toxic_max, "ไม่มั่นใจ (Uncertain). ห้ามบริโภค.", True
     return "info_only", edible_max, toxic_max, "ข้อมูลประกอบเท่านั้น.", True
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-app.mount("/web", StaticFiles(directory=os.path.join(BASE_DIR, "www"), html=True), name="www")
+#BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+#app.mount("/web", StaticFiles(directory=os.path.join(BASE_DIR, "www"), html=True), name="www")
 
 @app.get("/")
 def root():
