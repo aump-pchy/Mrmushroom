@@ -17,5 +17,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # ---- Run ----
-# ใช้ sh -c เพื่อให้ Railway inject PORT ได้
-CMD ["sh", "-c", "uvicorn app.app:app --host 0.0.0.0 --port ${PORT:-8000}"]
+CMD sh -c "uvicorn app.app:app --host 0.0.0.0 --port ${PORT:-8000}"
