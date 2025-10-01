@@ -13,7 +13,8 @@ TOXIC = {'Deathcap','DestroyingAngel','Panthercap'}
 UNCERTAIN_GAP = 0.10
 
 app = FastAPI(title="MushroomGuard (.pt) on Cloud Run")
-app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+#app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+
 # ✅ เปิด CORS ให้เว็บ Firebase เรียก API ได้
 app.add_middleware(
     CORSMiddleware,
@@ -26,6 +27,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 # NOTE: อย่า import ultralytics ตรงนี้ (จะทำให้บูตช้า/พังตอน import)
 _model = None
 _class_names = None
