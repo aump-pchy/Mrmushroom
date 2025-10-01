@@ -14,7 +14,18 @@ UNCERTAIN_GAP = 0.10
 
 app = FastAPI(title="MushroomGuard (.pt) on Cloud Run")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
-
+# ✅ เปิด CORS ให้เว็บ Firebase เรียก API ได้
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://mrmushroom-996ac.web.app",   # เว็บ firebase ของคุณ
+        "http://localhost:5000",              # เอาไว้เทส local
+        "*"                                   # (ชั่วคราว) อนุญาตทุก origin
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # NOTE: อย่า import ultralytics ตรงนี้ (จะทำให้บูตช้า/พังตอน import)
 _model = None
 _class_names = None
