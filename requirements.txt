@@ -1,12 +1,12 @@
-ultralytics
-opencv-python-headless
+ultralytics==8.0.196
+opencv-python-headless==4.10.0.84
 python-multipart
-torch==2.2.2+cpu
-torchvision==0.17.2+cpu
---extra-index-url https://download.pytorch.org/whl/cpu
 fastapi==0.115.0
 uvicorn[standard]==0.30.1
 pillow==11.0.0
 requests==2.32.3
 pydantic==2.9.2
-opencv-python-headless==4.10.0.84
+
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.2.2+cpu
+torchvision==0.17.2+cpu
