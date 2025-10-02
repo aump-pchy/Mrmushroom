@@ -3,6 +3,7 @@ uvicorn
 pillow
 requests
 ultralytics
+opencv-python-headless
 python-multipart
 torch==2.2.2+cpu
 torchvision==0.17.2+cpu
