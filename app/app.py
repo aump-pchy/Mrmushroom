@@ -19,7 +19,7 @@ app = FastAPI(title="MushroomGuard (.pt) on Cloud Run")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://mrmushroom-996ac.web.app",   # เว็บ firebase ของคุณ
+        "https://web-production-4c99d.up.railway.app",   # เว็บ firebase ของคุณ
         "http://localhost:5000",              # เอาไว้เทส local
         "*"                                   # (ชั่วคราว) อนุญาตทุก origin
     ],
@@ -27,6 +27,13 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+if __name__ == "__main__":
+    import os
+    import uvicorn
+    port = int(os.getenv("PORT", "8080"))
+    uvicorn.run(app, host="0.0.0.0", port=port, reload=False)
+
 
 # NOTE: อย่า import ultralytics ตรงนี้ (จะทำให้บูตช้า/พังตอน import)
 _model = None
